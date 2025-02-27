@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRILSO</title>
+    <link rel="icon" type="image/prilso" href="favicon.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #c0c1c2;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #FF0000;
+            font-size: 40px;
+        }
+        p {
+            font-weight: 600;
+        }
+        p:first-child {
+            font-size: 18px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+        }
+        .btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .btn-web { background-color: #c0c1c2; }
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-instagram { background-color: #C13584; }
+        .btn-facebook { background-color: #1877F2; }
+        .btn-youtube { background-color: #FF0000; }
+        .btn-linkedin { background-color: #0077B5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bienvenid@ a Prilso</h2>
+        <p>¿Cómo deseas ser atendido?</p>
+        <button class="btn btn-web" style="border: 2px solid #000;" onclick="abrirEnlace('https://www.prilso.com/')">
+            <img src="android-chrome-192x192.png" alt="Web"> Ir a la Página Web
+        </button>
+        <button class="btn btn-whatsapp" onclick="irWhatsApp()">
+            <img src="whatsapp.png" alt="WhatsApp"> Atención por WhatsApp
+        </button>
+        <button class="btn btn-instagram" onclick="abrirApp('instagram://user?username=prilso', 'https://www.instagram.com/prilso/')">
+            <img src="instagram.png" alt="Instagram"> Síguenos en Instagram
+        </button>
+        <button class="btn btn-facebook" onclick="abrirApp('fb://profile/123456789', 'https://www.facebook.com/prilso')">
+            <img src="facebook.png" alt="Facebook"> Síguenos en Facebook
+        </button>
+        <button class="btn btn-youtube" onclick="abrirApp('youtube://www.youtube.com/channel/UCPrilso', 'https://www.youtube.com/channel/UCPrilso')">
+            <img src="youtube.png" alt="YouTube"> Síguenos en YouTube
+        </button>
+        <button class="btn btn-linkedin" onclick="abrirApp('linkedin://company/prilso', 'https://www.linkedin.com/company/prilso')">
+            <img src="linkedin.png" alt="LinkedIn"> Síguenos en LinkedIn
+        </button>
+        <p>¡También puedes seguirnos en nuestras redes sociales!</p>
+    </div>
+
+    <script>
+        function abrirApp(urlApp, urlWeb) {
+            var now = new Date().getTime();
+            var win = window.open(urlApp, "_self");
+            
+            setTimeout(function () {
+                if (new Date().getTime() - now < 2000) {
+                    window.location.href = urlWeb;
+                }
+            }, 1500);
+        }
+
+        function abrirEnlace(url) {
+            window.open(url, "_blank");
+        }
+
+        function irWhatsApp() {
+            var telefono = "573103404648";
+            var mensaje = encodeURIComponent("Escaneé tu QR y necesito tu asesoría.");
+            var urlApp = "whatsapp://send?phone=" + telefono + "&text=" + mensaje;
+            var urlWeb = "https://wa.me/" + telefono + "?text=" + mensaje;
+            abrirApp(urlApp, urlWeb);
+        }
+    </script>
+</body>
+</html>
