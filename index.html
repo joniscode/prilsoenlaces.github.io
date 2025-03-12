@@ -21,7 +21,7 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
         h2 {
-            color: #FF0000;
+            color: #000;
             font-size: 40px;
         }
         p {
@@ -79,6 +79,9 @@
         <button class="btn btn-linkedin" onclick="abrirApp('linkedin://company/prilso', 'https://www.linkedin.com/in/prilsosas/')">
             <img src="linkedin.png" alt="LinkedIn"> Síguenos en LinkedIn
         </button>
+        <button class="btn btn-web" style="border: 2px solid #000;" onclick="abrirUbicacion()">
+            <img src="mapa.png" alt="Google Maps"> Visitanos
+        </button>
         <p>¡También puedes seguirnos en nuestras redes sociales!</p>
     </div>
 
@@ -104,6 +107,17 @@
             var urlApp = "whatsapp://send?phone=" + telefono + "&text=" + mensaje;
             var urlWeb = "https://wa.me/" + telefono + "?text=" + mensaje;
             abrirApp(urlApp, urlWeb);
+        }
+        function abrirUbicacion() {
+            // Coordenadas de la ubicación deseada
+            const lat = 4.689861; // Ejemplo: Bogotá, Colombia
+            const lng = -74.146527;
+
+            // URL para abrir en Google Maps
+            const url = `https://www.google.com/maps?q=${lat},${lng}`;
+            
+            // Abrir en una nueva pestaña
+            window.open(url, "_blank");
         }
     </script>
 </body>
